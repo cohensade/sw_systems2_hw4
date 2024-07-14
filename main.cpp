@@ -96,8 +96,45 @@ int main() {
         cout << (*node).get_value() << endl;
     }
 
+    cout << "3-ary tree Post order iterator: " << endl;
+    for (auto node = three_ary_tree.begin_post_order(); node != three_ary_tree.end_post_order(); ++node) {
+        cout << (*node).get_value() << endl;
+    }
+
+    cout << "3-ary tree Pre order iterator: " << endl;
+    for (auto node = three_ary_tree.begin_pre_order(); node != three_ary_tree.end_pre_order(); ++node) {
+        cout << (*node).get_value() << endl;
+    }
+
+    cout << "3-ary tree In order iterator: " << endl;
+    for (auto node = three_ary_tree.begin_in_order(); node != three_ary_tree.end_in_order(); ++node) {
+        cout << (*node).get_value() << endl;
+    }
+
     //display the tree
-    tree.displayGui();
+    // three_ary_tree.displayGui();
+    // tree.displayGui();
 
     return 0;
 }
+
+//binary tree
+// The tree should look like:
+    /**
+     *    root = 1.1 + 2i
+     *     /            \
+     *    3 +4i         5 +6i
+     *   /  \          /     \
+     *  7+8i  9+10i   11+12i
+     */
+
+
+//none binary tree
+// The tree should look like:
+    /**
+     *       root = 1.1 + 2i
+     *     /       \          \
+     *    3 +4i     5 +6i      7+8i
+     *   /  \      /  \
+     *  9+10i  11+12i  
+     */

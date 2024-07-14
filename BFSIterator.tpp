@@ -10,7 +10,7 @@ BFSIterator<T>::BFSIterator(Node<T>* root) {
 
 template <typename T>
 bool BFSIterator<T>::operator!=(const BFSIterator& other) const {
-    return !queue.empty();  // Return true if queue is not empty
+    return !queue.empty();  //checks if the current iterator is still valid
 }
 
 template <typename T>
@@ -26,6 +26,7 @@ BFSIterator<T>& BFSIterator<T>::operator++() {
 template <typename T>
 Node<T>& BFSIterator<T>::operator*() const {
     return *queue.front();  // Dereference to get the front node in the queue
+    //accsess to the object
 }
 
 #endif // BFS_ITERATOR_TPP

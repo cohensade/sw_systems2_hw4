@@ -14,6 +14,8 @@
 #include "DFSIterator.hpp"
 #include "HeapIterator.hpp"
 
+using namespace std;
+
 template <typename T, int K = 2>
 class Tree {
 public:
@@ -25,12 +27,12 @@ public:
     Node<T>* find_node(Node<T>* node, T value);  // Find node by value
 
     // Iterator methods
-    PreOrderIterator<T> begin_pre_order();
-    PreOrderIterator<T> end_pre_order();
-    PostOrderIterator<T> begin_post_order();
-    PostOrderIterator<T> end_post_order();
-    InOrderIterator<T> begin_in_order();
-    InOrderIterator<T> end_in_order();
+    PreOrderIterator<T, K> begin_pre_order();
+    PreOrderIterator<T, K> end_pre_order();
+    PostOrderIterator<T, K> begin_post_order();
+    PostOrderIterator<T, K> end_post_order();
+    InOrderIterator<T, K> begin_in_order();
+    InOrderIterator<T, K> end_in_order();
     BFSIterator<T> begin_bfs_scan();
     BFSIterator<T> end_bfs_scan();
     DFSIterator<T> begin_dfs_scan();

@@ -15,12 +15,14 @@ Tree<T, K>::~Tree() {
     delete root;  // Destructor deletes root
 }
 
+//adds root to a tree
 template <typename T, int K>
 void Tree<T, K>::add_root(const Node<T>& node) {
     if (root != nullptr) delete root;  // Delete existing root
     root = new Node<T>(node.value);  // Set new root
 }
 
+// Adds a child node to a specified parent node
 template <typename T, int K>
 void Tree<T, K>::add_sub_node(const Node<T>& parent, const Node<T>& child) {
     Node<T>* parentNode = find_node(root, parent.value);
@@ -29,6 +31,7 @@ void Tree<T, K>::add_sub_node(const Node<T>& parent, const Node<T>& child) {
     }
 }
 
+// Finds a node in the tree with a specific value
 template <typename T, int K>
 Node<T>* Tree<T, K>::find_node(Node<T>* node, T value) {
     if (node == nullptr) return nullptr;
@@ -42,39 +45,33 @@ Node<T>* Tree<T, K>::find_node(Node<T>* node, T value) {
 
 // Iterator methods
 template <typename T, int K>
-PreOrderIterator<T> Tree<T, K>::begin_pre_order() {
-    if (K != 2) throw std::logic_error("Pre-order traversal is only valid for binary trees.");
-    return PreOrderIterator<T>(root);
+PreOrderIterator<T, K> Tree<T, K>::begin_pre_order() {
+    return PreOrderIterator<T, K>(root);
 }
 
 template <typename T, int K>
-PreOrderIterator<T> Tree<T, K>::end_pre_order() {
-    if (K != 2) throw std::logic_error("Pre-order traversal is only valid for binary trees.");
-    return PreOrderIterator<T>(nullptr);
+PreOrderIterator<T, K> Tree<T, K>::end_pre_order() {
+    return PreOrderIterator<T, K>(nullptr);
 }
 
 template <typename T, int K>
-PostOrderIterator<T> Tree<T, K>::begin_post_order() {
-    if (K != 2) throw std::logic_error("Post-order traversal is only valid for binary trees.");
-    return PostOrderIterator<T>(root);
+PostOrderIterator<T, K> Tree<T, K>::begin_post_order() {
+    return PostOrderIterator<T, K>(root);
 }
 
 template <typename T, int K>
-PostOrderIterator<T> Tree<T, K>::end_post_order() {
-    if (K != 2) throw std::logic_error("Post-order traversal is only valid for binary trees.");
-    return PostOrderIterator<T>(nullptr);
+PostOrderIterator<T, K> Tree<T, K>::end_post_order() {
+    return PostOrderIterator<T, K>(nullptr);
 }
 
 template <typename T, int K>
-InOrderIterator<T> Tree<T, K>::begin_in_order() {
-    if (K != 2) throw std::logic_error("In-order traversal is only valid for binary trees.");
-    return InOrderIterator<T>(root);
+InOrderIterator<T, K> Tree<T, K>::begin_in_order() {
+    return InOrderIterator<T, K>(root);
 }
 
 template <typename T, int K>
-InOrderIterator<T> Tree<T, K>::end_in_order() {
-    if (K != 2) throw std::logic_error("In-order traversal is only valid for binary trees.");
-    return InOrderIterator<T>(nullptr);
+InOrderIterator<T, K> Tree<T, K>::end_in_order() {
+    return InOrderIterator<T, K>(nullptr);
 }
 
 template <typename T, int K>
@@ -149,7 +146,7 @@ void Tree<T, K>::heapify_node(Node<T>* node) {
 
 // GUI display method
 template <typename T, int K>
-void Tree<T, K>::displayGui() const {
+void Tree<T, K>::displayGui() const { 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Tree GUI");
     sf::Font font;
     if (!font.loadFromFile("myfont.otf")) {
